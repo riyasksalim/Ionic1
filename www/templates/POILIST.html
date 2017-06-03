@@ -1,21 +1,27 @@
 ﻿
 <ion-view view-title="Motion Lists">
+  <div class="bar bar-header">
+    <button class="button icon ion-navicon"></button>
+    <h1 class="title">Header Buttons</h1>
+    <button class="button">Edit</button>
+  </div>
     <ion-content>
-        <div class="bar bar-subheader bar-stable static text-center">
+     
+        <!--<div class="bar bar-subheader bar-stable static text-center">
             <strong class="title">100% Hardware Accelerated</strong>
-        </div>
+        </div>-->
         <div class="im-wrapper">
             <h4 class="no-border no-padding-bottom">List Motions</h4>
             <strong>Tap an item</strong>
         </div>
         <ion-list class="animate-ripple">
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="blinds();">
+            <ion-item ng-repeat="location in GooglePOIModelList" nav-clear menu-close class="item-icon-right item-avatar" ng-click="blinds();">
                 <img src="img/material4.jpg">
-                <h2>.animate-blinds</h2>
-                <p>ionicMaterialMotion.blinds();</p>
+                <h2>{{location.name}}</h2>
+                <p>{{location.vicinity}};</p>
                 <i class="icon ion-chatbubble muted"></i>
             </ion-item>
-            <ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="ripple();">
+            <!--<ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="ripple();">
                 <img src="img/material2.jpg">
                 <h2>.animate-ripple</h2>
                 <p>ionicMaterialMotion.ripple();</p>
@@ -32,9 +38,9 @@
                 <h2>.animate-fade-slide-in-right</h2>
                 <p>ionicMaterialMotion.fadeSlideInRight();</p>
                 <i class="icon ion-chatbubble muted"></i>
-            </ion-item>
+            </ion-item>-->
         </ion-list>
-        <div class="im-wrapper">
+        <!--<div class="im-wrapper">
             <h4 class="no-padding-bottom">HTML</h4>
             <strong>Add an animation class to your &lt;ion-list&gt;</strong>
             <div class="code">
@@ -82,6 +88,6 @@
         </div>
         <br />
         <br />
-        <br />
+        <br />-->
     </ion-content>
 </ion-view>

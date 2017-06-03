@@ -1,0 +1,35 @@
+﻿
+<ion-view view-title="Motion Elements">
+  <div class="bar bar-header bar-positive">
+    <h1 class="title">{{Title}}</h1>
+  </div>
+  <ion-content>
+    <div class="row responsive-sm">
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col">
+      <ng-map ng-if="!ShowPOIs" center="[{{location.latitude}},{{location.longitude}}]">
+           <marker position="[{{location.latitude}},{{location.longitude}}]"></marker>      
+      </ng-map>
+
+        <ng-map   tilt="45" zoom="20" ng-if="ShowPOIs" center="[{{location.latitude}},{{location.longitude}}]">       
+             <marker on-click="showInfoWindow(event, destination)" position="[{{destination.latitude}},{{destination.longitude}}]" ng-repeat="destination in Destinations">             
+             </marker>
+
+        </ng-map>
+
+      </div>
+      <div class="col">
+        <button class="button button-block button-energized" ng-click="ShowPOI()">
+        Show POI of the Location {{location.Name}}
+        </button>
+        <button ng-if="Title=='POI of the location'" class="button button-block button-energized" ng-click="showPOIList()">
+          Show in List
+        </button>
+      </div>
+ 
+    </div>
+
+  </ion-content>
+</ion-view>

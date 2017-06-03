@@ -1,0 +1,32 @@
+﻿
+<ion-view >
+  <ion-pane>
+ 
+    <ion-content class="padding" scroll="false" >
+
+      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide options="options" slider="data.slider" ng-repeat="slide in slides" >
+       
+          <ion-card>
+            <img ng-src="{{slide.image}}">
+            <ion-card-content>
+              <ion-card-title ng-bind-html="slide.title">
+              
+              </ion-card-title>
+              <p ng-bind-html="slide.description">
+              
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+
+    
+      </ion-slide-box>
+     
+    </ion-content>
+    <div ng-if="enableButton" ng-click="go()" class="bar bar-footer bar-balanced">
+      <div class="title">Go!!</div>
+    </div>
+  </ion-pane>
+  
+</ion-view>

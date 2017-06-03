@@ -1,15 +1,9 @@
-﻿// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'ionic-material']);
+﻿
+var app = angular.module('starter', ['ionic', 'ionic-material', 'starter.services', 'ngMap']);
 
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-
+    
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
@@ -30,11 +24,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 
     .state('app.lists', {
-        url: '/lists',
+        url: '/lists/:status/:param2',
         views: {
             'menuContent': {
-                templateUrl: 'templates/lists.html',
-                controller: 'ListsCtrl'
+                templateUrl: 'templates/POILIST.html',
+                controller: 'PoiListController'
             }
         }
     })
@@ -53,8 +47,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/motion',
         views: {
             'menuContent': {
-                templateUrl: 'templates/motion.html',
-                controller: 'MotionCtrl'
+                templateUrl: 'templates/LocationChoose.html',
+                controller: 'ChoosingLocationController'
             }
         }
     })
@@ -63,11 +57,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/components',
         views: {
             'menuContent': {
-                templateUrl: 'templates/components.html',
-                controller: 'MainCtrl'
+                templateUrl: 'templates/Introduction-page.html',
+                controller: 'IntroductionController'
             }
         }
-    })
+        })
+        .state('app.SelectLocation', {
+            url: '/SelectLocation/:status/:param2',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/SelectLocation.html',
+                    controller: 'SelectLocationController',
+                   // params: { new_param: null }
+                }
+            }
+        })
 
     .state('app.extensions', {
         url: '/extensions',
@@ -79,7 +83,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
     ;
-
-    // if none of the above states are matched, use this as the fallback
+    
     $urlRouterProvider.otherwise('/app/components');
 });

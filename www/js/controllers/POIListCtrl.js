@@ -1,4 +1,27 @@
-﻿app.controller('ListsCtrl', function ($scope, $stateParams, ionicMaterialMotion) {
+﻿app.controller('PoiListController', function ($scope, $stateParams, ionicMaterialMotion, apiservice) {
+
+  
+
+    function MakeGooglePOIModel(Photos,count) {
+        //var model = Model;
+        var pics = [];
+        if (Photos !== undefined) {
+            for (var i = 0; i < Photos.length; i++) {
+                var promise = apiservice.getGooglePhotoBYReference(Photos[i].photo_reference);
+                promise.then(function (payload) {
+                    debugger;
+                    //pics.push(i);
+                    //model["Photos"] = payload;
+                }, function (errorPayload) {
+
+                });
+            }
+        }
+        debugger;
+    }
+
+
+    debugger;
 
     var reset = function() {
         var inClass = document.querySelectorAll('.in');
@@ -53,5 +76,25 @@
     };
 
     $scope.blinds();
+
+
+    $scope.GooglePOI = JSON.parse($stateParams.status);
+
+    $scope.GooglePOIModelList = [];
+    for (var i = 0; i < $scope.GooglePOI.length; i++) {
+        var place = $scope.GooglePOI[i];
+        var GooglePOIModel = {
+            name: place.name,
+            place_id: place.place_id,
+            reference: place.reference,
+            types: place.types, //its an array
+            vicinity: place.vicinity,
+            Photos: ""
+        }
+        $scope.GooglePOIModelList.push(GooglePOIModel);
+        $scope.fadeSlideIn();
+        var photos = place.photos;
+        MakeGooglePOIModel(photos, i);
+    }
 
 });
