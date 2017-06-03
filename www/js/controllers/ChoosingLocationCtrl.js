@@ -3,7 +3,7 @@
 app.controller('ChoosingLocationController', function ($scope, $state, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
     $scope.gotolocation = function (location) {
         debugger;
-        $state.go('app.SelectLocation', { status: location, param2: location });
+        $state.go('SelectLocation', { status: location, param2: location });
         
     };
 
@@ -93,7 +93,7 @@ app.controller('SelectLocationController', function ($scope, NgMap, apiservice, 
     }
     $scope.showPOIList = function () {
         //  $state.go('app.lists');
-        $state.go('app.lists', { status: JSON.stringify($scope.GooglePOI), param2: null });
+        $state.go('lists', { status: JSON.stringify($scope.GooglePOI), param2: null });
     };
 
 })

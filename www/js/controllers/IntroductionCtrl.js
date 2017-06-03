@@ -54,7 +54,7 @@
 
     $scope.go = function () {
       
-        $state.go('app.motion');
+        $state.go('motion');
     };
 
 

@@ -16,73 +16,39 @@ app.run(function ($ionicPlatform) {
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
 
-    .state('app', {
-        url: '/app',
-        abstract: true,
-        templateUrl: 'templates/menu.html',
-        controller: 'AppCtrl'
-    })
+   
 
-    .state('app.lists', {
-        url: '/lists/:status/:param2',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/POILIST.html',
-                controller: 'PoiListController'
-            }
-        }
-    })
-
-    .state('app.ink', {
-        url: '/ink',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/ink.html',
-                controller: 'InkCtrl'
-            }
-        }
-    })
-
-    .state('app.motion', {
-        url: '/motion',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/LocationChoose.html',
-                controller: 'ChoosingLocationController'
-            }
-        }
-    })
-
-    .state('app.components', {
-        url: '/components',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/Introduction-page.html',
-                controller: 'IntroductionController'
-            }
-        }
-        })
-        .state('app.SelectLocation', {
-            url: '/SelectLocation/:status/:param2',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/SelectLocation.html',
-                    controller: 'SelectLocationController',
-                   // params: { new_param: null }
-                }
-            }
+        .state('lists', {
+            url: "/lists/:status/:param2",
+            templateUrl: "templates/POILIST.html",
+            controller: "PoiListController"
         })
 
-    .state('app.extensions', {
-        url: '/extensions',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/extensions.html',
-                controller: 'ExtensionsCtrl'
-            }
-        }
-    })
-    ;
-    
-    $urlRouterProvider.otherwise('/app/components');
+        .state('ink', {
+            url: "/ink",
+            templateUrl: "templates/ink.html",
+            controller: "InkCtrl"
+        })
+        .state('SelectLocation', {
+            url: "/SelectLocation/:status/:param2",
+            templateUrl: "templates/SelectLocation.html",
+            controller: "SelectLocationController"
+        })
+   .state('sitesView', {
+        url: "/sitesView",
+        templateUrl: "templates/Introduction-page.html",
+        controller: "IntroductionController"
+        })
+        .state('motion', {
+            url: '/motion',
+            templateUrl: "templates/LocationChoose.html",
+            controller: "ChoosingLocationController"
+        })
+        .state('extensions', {
+            url: '/extensions',
+            templateUrl: "templates/extensions.html",
+            controller: "ExtensionsCtrl"
+        });
+  
+    $urlRouterProvider.otherwise("/sitesView");
 });
