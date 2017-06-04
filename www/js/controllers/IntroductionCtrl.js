@@ -24,6 +24,10 @@
   //      <!--<script src= "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7f0838f8465ef40769465d98568d3933&tags=santogopalanmemorialreadingroom&per_page=50&format=json" ></script > -->
   //          <script src="https://api.flickr.com/services/rest/?method=flickr.test.login&api_key=004a2a979699ede40ed45e56a70b7d11&format=json&nojsoncallback=1&auth_token=72157684553246376-4392ba8801fe9007&api_sig=4d9dcf8f702634bf3d2e0ab1c8cc7f63"></script>
 
+
+    //https://api.flickr.com/services/rest/?method=flickr.test.login&api_key=004a2a979699ede40ed45e56a70b7d11&format=json&nojsoncallback=1&auth_token=72157684553246376-4392ba8801fe9007&api_sig=4d9dcf8f702634bf3d2e0ab1c8cc7f63
+
+
     debugger;
     var app = new Clarifai.App(
         'jqq0X4vzgde8StMZB1mX4Z3ct25f9cn43g1c-Mzz',

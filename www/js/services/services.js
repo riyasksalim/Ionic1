@@ -53,10 +53,15 @@ app.factory('apiservice', function ($http) {
         return $http.get('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=' + reference + '&sensor=false&key=AIzaSyD2gBAIjDft_TIBq_X5-wUa8KMrKfHHtxk');
     };
 
+    function getFlickerImages(){
+        return $http.get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=50303a9d9ba03987f2abf04fbeea54a0&text=parks&lat=9.9312&lon=76.2673&radius=10&format=json&nojsoncallback=1&api_sig=a34ed9f909945886b8c8db89ececf90c');
+    };
 
+    
     return {
         getGooglePOi: getGooglePOi,
-        getGooglePhotoBYReference: getGooglePhotoBYReference
+        getGooglePhotoBYReference: getGooglePhotoBYReference,
+        getFlickerImages: getFlickerImages
     }
         
 });

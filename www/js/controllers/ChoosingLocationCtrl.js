@@ -19,6 +19,35 @@ app.controller('SelectLocationController', function ($scope, NgMap, apiservice, 
         $scope.objMapa = map;
     });
 
+    //my own photos
+    //https://api.flickr.com/services/rest/?method=flickr.photos.getWithGeoData&api_key=50303a9d9ba03987f2abf04fbeea54a0&format=rest&auth_token=72157681601806254-d444d62e6a361f81&api_sig=9932d6b8dbafa6e43c567f303e8057d9
+
+    $scope.scopePhotos = [];
+    debugger;
+    //get photos of the place of lat long
+    var promise = apiservice.getFlickerImages();
+    promise.then(function (rsp) {
+        debugger;
+        var rsp = rsp.data;
+        var s, photo, t_url, p_url;
+        for (var i = 0; i < rsp.photos.photo.length; i++) {
+            photo = rsp.photos.photo[i];
+            t_url = "http://farm" + photo.farm + ".static.flickr.com/" +
+                photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
+            p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+            s += '<a href="' + p_url + '">' + '<img alt="' + photo.title +
+                '"src="' + t_url + '"/>' + '</a>';
+            console.log(t_url);
+            $scope.scopePhotos.push(t_url);
+        }
+
+    }, function (errorPayload) {
+        debugger;
+        alert(errorPayload);
+    });
+
+
+
 
    
     if (status == "Current") {
