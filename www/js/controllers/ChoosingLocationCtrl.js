@@ -22,7 +22,7 @@ app.controller('SelectLocationController', function ($scope, NgMap, apiservice, 
 
    
     if (status == "Current") {
-        //  getLocation();
+          getLocation();
         debugger;
         $scope.location.Name = "Kochi";
         $scope.location.latitude = 9.9312;
@@ -80,6 +80,7 @@ app.controller('SelectLocationController', function ($scope, NgMap, apiservice, 
         infowindow.open($scope.objMapa);
     };
     function getLocation() {
+        debugger;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
